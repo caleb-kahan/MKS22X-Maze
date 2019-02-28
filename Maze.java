@@ -103,22 +103,18 @@ public class Maze{
 
   */
   public int solve(){
-    for(char [] seq: maze){
-      for(char chr:seq){
-        returner+=chr;
+    for(int i =0;i<maze.length;i++){
+      for(int j=0;i<maze[0].length;j++){
+        if(maze[i][j]=='S'){
+          maze[i][j]='@';
+          if(maze[i][j+1]==' ') return solve(i,j+1);
+          if(maze[i-1][j]==' ') return solve(i,j+1);
+          if(maze[i+1][j]==' ') return solve(i+1,j);
+          if(maze[i][j-1]==' ') return solve(i,j-1);
+        }
       }
-      returner+='\n';
     }
-    //find the location of the S.
-
-
-    //erase the S
-
-
-    //and start solving at the location of the s.
-
-    //return solve(???,???);
-
+    return -1;
   }
 
   /*
