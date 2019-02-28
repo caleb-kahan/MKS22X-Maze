@@ -103,7 +103,12 @@ public class Maze{
 
   */
   public int solve(){
-
+    for(char [] seq: maze){
+      for(char chr:seq){
+        returner+=chr;
+      }
+      returner+='\n';
+    }
     //find the location of the S.
 
 
