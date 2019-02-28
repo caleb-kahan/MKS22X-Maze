@@ -45,7 +45,7 @@ public class Maze{
       }
       i++;
     }
-    if(countE!=1 || countS!=1) throw IllegalStateException("");
+    if(countE!=1 || countS!=1) throw IllegalStateException("Not exactly one start+one end");
 
   }
 
@@ -85,9 +85,13 @@ public class Maze{
 
   */
   public String toString(){
-
-    return "WRITE THIS METHOD";
-
+    String returner ="";
+    for(char [] seq: maze){
+      for(char chr:seq){
+        returner+=chr;
+      }
+      returner+='\n';
+    }
   }
 
 
