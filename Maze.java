@@ -135,18 +135,29 @@ public class Maze{
   All visited spots that are part of the solution are changed to '@'
   */
   private int solve(int row, int col){ //you can add more parameters since this is private
-
-
-    //automatic animation! You are welcome.
     if(animate){
-
       clearTerminal();
       System.out.println(this);
-
       wait(20);
     }
 
-    //COMPLETE SOLVE
+    if(maze[row][col]=='E'){
+      int charCount=0;
+      for(char [] seq: maze){
+        for(char chr:seq){
+          if(chr=='@'){
+            charCount++;
+          }
+        }
+      }
+      return charCount;
+    }
+    maze[i][j]='@';
+    if(maze[i][j+1]==' ') return solve(i,j+1);
+    if(maze[i-1][j]==' ') return solve(i,j+1);
+    if(maze[i+1][j]==' ') return solve(i+1,j);
+    if(maze[i][j-1]==' ') return solve(i,j-1);
+  }
 
     return -1; //so it compiles
   }
