@@ -134,6 +134,8 @@ public class Maze{
   All visited spots that are part of the solution are changed to '@'
   */
   private int solve(int row, int col){ //you can add more parameters since this is private
+    int i = row;
+    int j = col;
     if(animate){
       clearTerminal();
       System.out.println(this);
