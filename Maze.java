@@ -91,6 +91,7 @@ public class Maze{
       }
       returner+='\n';
     }
+    return returner;
   }
 
 
