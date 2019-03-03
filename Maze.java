@@ -45,7 +45,7 @@ public class Maze{
       }
       i++;
     }
-    if(countE!=1 || countS!=1) throw IllegalStateException("Not exactly one start+one end");
+    if(countE!=1 || countS!=1) throw new IllegalStateException("Not exactly one start+one end");
   }
 
 
