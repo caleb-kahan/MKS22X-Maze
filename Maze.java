@@ -53,7 +53,6 @@ public class Maze{
       j=0;
       while(j<countCols){
         char chr = lin.charAt(j);
-        System.out.println(chr);
         if(chr=='E')countE++;
         if(chr=='S')countS++;
         maze[i][j]=chr;
@@ -64,7 +63,6 @@ public class Maze{
     scr2.close();
     if(countE!=1 || countS!=1) throw new IllegalStateException("Not exactly one start+one end");
   }
-
 
   private void wait(int millis){
     try {
@@ -121,7 +119,7 @@ public class Maze{
   */
   public int solve(){
     for(int i =0;i<maze.length;i++){
-      for(int j=0;i<maze[0].length;j++){
+      for(int j=0;j<maze[0].length;j++){
         if(maze[i][j]=='S'){
           maze[i][j]='@';
           if(maze[i][j+1]==' ') return solve(i,j+1);
