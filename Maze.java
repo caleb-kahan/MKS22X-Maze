@@ -36,13 +36,15 @@ public class Maze{
     int countCols =0;
     while(scr.hasNextLine()){
       String line = scr.nextLine();
+      System.out.println(line);
       Scanner miniScan = new Scanner(line);
       while(scr.hasNext()){
         scr.next();
         countCols++;
       }
       countRows++;
-    }
+    }/*
+    System.out.println(countRows+" "+countCols);
     scr.close();
     Scanner scr2 = new Scanner(file);
     maze = new char[countRows][countCols];
@@ -66,7 +68,7 @@ public class Maze{
       miniScan.close();
     }
     scr2.close();
-    if(countE!=1 || countS!=1) throw new IllegalStateException("Not exactly one start+one end");
+    if(countE!=1 || countS!=1) throw new IllegalStateException("Not exactly one start+one end");*/
   }
 
 
