@@ -32,20 +32,18 @@ public class Maze{
     animate = false;
     File file = new File(filename);
     Scanner scr = new Scanner(file);
-    int countRows =0;
-    int countCols =0;
+    if(! scr.hasNextLine()){
+      throw new IllegalStateException("Not exactly one start+one end");
+    }
+    String line = scr.nextLine();
+    int countCols=line.length();
+    int countRows =1;
     while(scr.hasNextLine()){
-      String line = scr.nextLine();
-      System.out.println(line);
-      Scanner miniScan = new Scanner(line);
-      while(scr.hasNext()){
-        scr.next();
-        countCols++;
-      }
+      line = scr.nextLine();
       countRows++;
-    }/*
+    }
     System.out.println(countRows+" "+countCols);
-    scr.close();
+    /*scr.close();
     Scanner scr2 = new Scanner(file);
     maze = new char[countRows][countCols];
     int i=0;
