@@ -25,20 +25,37 @@ public class Maze{
   */
 
   public Maze(String filename) throws FileNotFoundException{
-    mase = new char[][];
+
+
     int countE =0;
     int countS = 0;
     animate = false;
     File file = new File(filename);
     Scanner scr = new Scanner(file);
-    int i =0;
-    int j =0;
+    int countRows =0;
+    int countCols =0;
     while(scr.hasNextLine()){
       String line = scr.nextLine();
+      Scanner miniScan = new Scanner(line);
+      while(scr.hasNext()){
+        scr.next();
+        countCols++;
+      }
+      countRows++;
+    }
+    scr.close();
+    Scanner scr2 = new Scanner(file);
+    maze = new char[countRows][countCols];
+    int i=0;
+    int j=0;
+    while(scr2.hasNextLine()){
+      String line = scr2.nextLine();
       Scanner miniScan = new Scanner(line);
       j=0;
       while(miniScan.hasNext()){
         char chr = miniScan.next().charAt(0);
+        System.out.println(i);
+        System.out.println(j);
         System.out.println(chr);
         if(chr=='E')countE++;
         if(chr=='S')countS++;
@@ -48,7 +65,7 @@ public class Maze{
       i++;
       miniScan.close();
     }
-    scr.close();
+    scr2.close();
     if(countE!=1 || countS!=1) throw new IllegalStateException("Not exactly one start+one end");
   }
 
