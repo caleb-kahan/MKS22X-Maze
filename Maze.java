@@ -46,7 +46,6 @@ public class Maze{
       i++;
     }
     if(countE!=1 || countS!=1) throw IllegalStateException("Not exactly one start+one end");
-
   }
 
 
@@ -108,7 +107,7 @@ public class Maze{
         if(maze[i][j]=='S'){
           maze[i][j]='@';
           if(maze[i][j+1]==' ') return solve(i,j+1);
-          if(maze[i-1][j]==' ') return solve(i,j+1);
+          if(maze[i-1][j]==' ') return solve(i-1,j);
           if(maze[i+1][j]==' ') return solve(i+1,j);
           if(maze[i][j-1]==' ') return solve(i,j-1);
         }
@@ -153,14 +152,11 @@ public class Maze{
       return charCount;
     }
     maze[i][j]='@';
-    if(maze[i][j+1]==' ') return solve(i,j+1);
-    if(maze[i-1][j]==' ') return solve(i,j+1);
-    if(maze[i+1][j]==' ') return solve(i+1,j);
-    if(maze[i][j-1]==' ') return solve(i,j-1);
-  }
+    if("E ".contains(maze[i][j+1]) return solve(i,j+1);
+    if("E ".contains(maze[i-1][j]) return solve(i-1,j);
+    if("E ".contains(maze[i+1][j]) return solve(i+1,j);
+    if("E ".contains(maze[i][j-1]) return solve(i,j-1);
 
     return -1; //so it compiles
   }
-
-
 }
