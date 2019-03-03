@@ -52,7 +52,7 @@ public class Maze{
       String lin = scr2.nextLine();
       j=0;
       while(j<countCols){
-        char chr = lin.charAt(i);
+        char chr = lin.charAt(j);
         System.out.println(chr);
         if(chr=='E')countE++;
         if(chr=='S')countS++;
