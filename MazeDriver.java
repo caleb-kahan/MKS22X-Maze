@@ -1,3 +1,5 @@
+import java.io.*;
+
 public class MazeDriver{
   public static void main(String[]args){
       String filename = "data1.dat";
