@@ -53,9 +53,7 @@ public class Maze{
       j=0;
       while(j<countCols){
         char chr = lin.charAt(i);
-        System.out.println(i);
-        System.out.println(j);
-        System.out.println(chr)
+        System.out.println(chr);
         if(chr=='E')countE++;
         if(chr=='S')countS++;
         maze[i][j]=chr;
