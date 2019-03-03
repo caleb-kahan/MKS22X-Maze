@@ -43,30 +43,28 @@ public class Maze{
       countRows++;
     }
     System.out.println(countRows+" "+countCols);
-    /*scr.close();
+    scr.close();
     Scanner scr2 = new Scanner(file);
     maze = new char[countRows][countCols];
     int i=0;
     int j=0;
     while(scr2.hasNextLine()){
-      String line = scr2.nextLine();
-      Scanner miniScan = new Scanner(line);
+      String lin = scr2.nextLine();
       j=0;
-      while(miniScan.hasNext()){
-        char chr = miniScan.next().charAt(0);
+      while(j<countCols){
+        char chr = lin.charAt(i);
         System.out.println(i);
         System.out.println(j);
-        System.out.println(chr);
+        System.out.println(chr)
         if(chr=='E')countE++;
         if(chr=='S')countS++;
         maze[i][j]=chr;
         j++;
       }
       i++;
-      miniScan.close();
     }
     scr2.close();
-    if(countE!=1 || countS!=1) throw new IllegalStateException("Not exactly one start+one end");*/
+    if(countE!=1 || countS!=1) throw new IllegalStateException("Not exactly one start+one end");
   }
 
 
