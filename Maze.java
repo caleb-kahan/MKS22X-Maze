@@ -25,6 +25,7 @@ public class Maze{
   */
 
   public Maze(String filename) throws FileNotFoundException{
+    mase = new char[][];
     int countE =0;
     int countS = 0;
     animate = false;
@@ -38,13 +39,16 @@ public class Maze{
       j=0;
       while(miniScan.hasNext()){
         char chr = miniScan.next().charAt(0);
+        System.out.println(chr);
         if(chr=='E')countE++;
         if(chr=='S')countS++;
         maze[i][j]=chr;
         j++;
       }
       i++;
+      miniScan.close();
     }
+    scr.close();
     if(countE!=1 || countS!=1) throw new IllegalStateException("Not exactly one start+one end");
   }
 
