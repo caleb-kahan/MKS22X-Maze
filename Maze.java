@@ -122,10 +122,15 @@ public class Maze{
       for(int j=0;j<maze[0].length;j++){
         if(maze[i][j]=='S'){
           maze[i][j]='@';
-          if(maze[i][j+1]==' ') return solve(i,j+1);
-          if(maze[i-1][j]==' ') return solve(i-1,j);
-          if(maze[i+1][j]==' ') return solve(i+1,j);
-          if(maze[i][j-1]==' ') return solve(i,j-1);
+          if(maze[i][j+1]==' ' && solve(i,j+1) !=-1)
+            return solve(i,j+1);
+          if(maze[i-1][j]==' ' && solve(i-1,j)!=-1)
+            return solve(i-1,j);
+          if(maze[i+1][j]==' ' && solve(i+1,j)!=-1)
+            return solve(i+1,j);;
+          if(maze[i][j-1]==' ' && solve(i,j-1)!=-1)
+            return solve(i,j-1);
+          maze[i][j]='.';
         }
       }
     }
@@ -170,10 +175,19 @@ public class Maze{
       return charCount;
     }
     maze[i][j]='@';
-    if("E ".contains(maze[i][j+1]+"")) return solve(i,j+1);
-    if("E ".contains(maze[i-1][j]+"")) return solve(i-1,j);
-    if("E ".contains(maze[i+1][j]+"")) return solve(i+1,j);
-    if("E ".contains(maze[i][j-1]+"")) return solve(i,j-1);
+    if("E ".contains(maze[i][j+1]+"") && solve(i,j+1)!=-1){
+          return solve(i,j+1);
+    }
+    if("E ".contains(maze[i-1][j]+"") && solve(i-1,j)!=-1){
+          return solve(i-1,j);
+    }
+    if("E ".contains(maze[i+1][j]+"") && solve(i+1,j)!=-1){
+          return solve(i+1,j);
+    }
+    if("E ".contains(maze[i][j-1]+"") && solve(i,j-1)!=-1){
+          return solve(i,j-1);
+    }
+    maze[i][j]='.';
 
     return -1; //so it compiles
   }
