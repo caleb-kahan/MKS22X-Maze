@@ -2,7 +2,7 @@ import java.io.*;
 
 public class MazeDriver{
   public static void main(String[]args){
-      String filename = "Data2.dat";
+      String filename = "Data3.dat";
       try{
         Maze f;
         f = new Maze(filename);//true animates the maze.
