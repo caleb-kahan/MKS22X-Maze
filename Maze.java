@@ -202,26 +202,25 @@ public class Maze{
             return solution1;
 	else maze[i][j+1]='.';
     }
- 
-    int solution2;
     if("E ".contains(maze[i-1][j]+"")){
-	if((solution2=solve(i-1,j))!=-1)
+	int solution2=solve(i-1,j);
+	if(solution2!=-1)
             return solution2;
 	else maze[i-1][j]='.';
     }
-    
-    int solution3;
     if("E ".contains(maze[i+1][j]+"")){
-	if((solution3=solve(i+1,j))!=-1)
+	int solution3=solve(i+1,j);
+	if(solution3!=-1)
             return solution3;
 	else maze[i+1][j]='.';
     }
-    int solution4;
     if("E ".contains(maze[i][j-1]+"")){
-	if((solution4=solve(i,j-1))!=-1)
+	int solution4=solve(i,j-1);
+	if(solution4!=-1)
             return solution4;
 	else maze[i][j-1]='.';
     }
+    
     return -1; //so it compiles
   }
 }
