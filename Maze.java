@@ -196,9 +196,9 @@ public class Maze{
       return charCount();
     }
     maze[i][j+1]='@';
-     int solution1;
     if("E ".contains(maze[i][j+1]+"")){
-	if((solution1=solve(i,j+1))!=-1)
+	int solution1=solve(i,j+1);
+	if(solution1!=-1)
             return solution1;
 	else maze[i][j+1]='.';
     }
