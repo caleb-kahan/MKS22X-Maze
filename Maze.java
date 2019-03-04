@@ -122,26 +122,32 @@ public class Maze{
       for(int j=0;j<maze[0].length;j++){
         if(maze[i][j]=='S'){
           maze[i][j]='@';
-          if(maze[i][j+1]==' ' && solve(i,j+1) !=-1){
-            maze[i][j+1]='@';
-            return solve(i,j+1);
-          }
-          maze[i][j+1]='.';
-          if(maze[i-1][j]==' ' && solve(i-1,j)!=-1){
-            maze[i-1][j]='@';
-            return solve(i-1,j);
-          }
-          maze[i][j+1]='.';
-          if(maze[i+1][j]==' ' && solve(i+1,j)!=-1){
-            maze[i+1][j]='@';
-            return solve(i+1,j);
-          }
-          maze[i+1][j]='.';
-          if(maze[i][j-1]==' ' && solve(i,j-1)!=-1){
-            maze[i][j=1]='@';
-            return solve(i,j-1);
-          }
-          maze[i][j-1]='.';
+          int solution1;
+    if("E ".contains(maze[i][j+1]+"")){
+	if((solution1=solve(i,j+1))!=-1)
+            return solution1;
+	else maze[i][j+1]='.';
+    }
+ 
+    int solution2;
+    if("E ".contains(maze[i-1][j]+"")){
+	if((solution2=solve(i-1,j))!=-1)
+            return solution2;
+	else maze[i-1][j]='.';
+    }
+    
+    int solution3;
+    if("E ".contains(maze[i+1][j]+"")){
+	if((solution3=solve(i+1,j))!=-1)
+            return solution3;
+	else maze[i+1][j]='.';
+    }
+    int solution4;
+    if("E ".contains(maze[i][j-1]+"")){
+	if((solution4=solve(i,j-1))!=-1)
+            return solution4;
+	else maze[i][j-1]='.';
+    }
         }
       }
     }
@@ -165,6 +171,18 @@ public class Maze{
 
   All visited spots that are part of the solution are changed to '@'
   */
+  private int charCount(){
+      int charCount=0;
+      for(char [] seq: maze){
+        for(char chr:seq){
+          if(chr=='@'){
+            charCount++;
+          }
+        }
+      }
+      return charCount;
+  }
+
   private int solve(int row, int col){ //you can add more parameters since this is private
     int i = row;
     int j = col;
@@ -175,31 +193,35 @@ public class Maze{
     }
 
     if(maze[row][col]=='E'){
-      int charCount=0;
-      for(char [] seq: maze){
-        for(char chr:seq){
-          if(chr=='@'){
-            charCount++;
-          }
-        }
-      }
-      return charCount;
+      return charCount();
     }
-    maze[i][j]='@';
-    if("E ".contains(maze[i][j+1]+"") && solve(i,j+1)!=-1){
-          return solve(i,j+1);
+    maze[i][j+1]='@';
+     int solution1;
+    if("E ".contains(maze[i][j+1]+"")){
+	if((solution1=solve(i,j+1))!=-1)
+            return solution1;
+	else maze[i][j+1]='.';
     }
-    if("E ".contains(maze[i-1][j]+"") && solve(i-1,j)!=-1){
-          return solve(i-1,j);
+ 
+    int solution2;
+    if("E ".contains(maze[i-1][j]+"")){
+	if((solution2=solve(i-1,j))!=-1)
+            return solution2;
+	else maze[i-1][j]='.';
     }
-    if("E ".contains(maze[i+1][j]+"") && solve(i+1,j)!=-1){
-          return solve(i+1,j);
+    
+    int solution3;
+    if("E ".contains(maze[i+1][j]+"")){
+	if((solution3=solve(i+1,j))!=-1)
+            return solution3;
+	else maze[i+1][j]='.';
     }
-    if("E ".contains(maze[i][j-1]+"") && solve(i,j-1)!=-1){
-          return solve(i,j-1);
+    int solution4;
+    if("E ".contains(maze[i][j-1]+"")){
+	if((solution4=solve(i,j-1))!=-1)
+            return solution4;
+	else maze[i][j-1]='.';
     }
-    maze[i][j]='.';
-
     return -1; //so it compiles
   }
 }
