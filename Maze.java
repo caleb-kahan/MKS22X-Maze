@@ -122,29 +122,27 @@ public class Maze{
       for(int j=0;j<maze[0].length;j++){
         if(maze[i][j]=='S'){
           maze[i][j]='@';
-          int solution1;
     if("E ".contains(maze[i][j+1]+"")){
-	if((solution1=solve(i,j+1))!=-1)
+	int solution1=solve(i,j+1);
+	if(solution1!=-1)
             return solution1;
 	else maze[i][j+1]='.';
     }
- 
-    int solution2;
     if("E ".contains(maze[i-1][j]+"")){
-	if((solution2=solve(i-1,j))!=-1)
+	int solution2=solve(i-1,j);
+	if(solution2!=-1)
             return solution2;
 	else maze[i-1][j]='.';
     }
-    
-    int solution3;
     if("E ".contains(maze[i+1][j]+"")){
-	if((solution3=solve(i+1,j))!=-1)
+	int solution3=solve(i+1,j);
+	if(solution3!=-1)
             return solution3;
 	else maze[i+1][j]='.';
     }
-    int solution4;
     if("E ".contains(maze[i][j-1]+"")){
-	if((solution4=solve(i,j-1))!=-1)
+	int solution4=solve(i,j-1);
+	if(solution4!=-1)
             return solution4;
 	else maze[i][j-1]='.';
     }
@@ -195,7 +193,7 @@ public class Maze{
     if(maze[row][col]=='E'){
       return charCount();
     }
-    maze[i][j+1]='@';
+    maze[i][j]='@';
     if("E ".contains(maze[i][j+1]+"")){
 	int solution1=solve(i,j+1);
 	if(solution1!=-1)
